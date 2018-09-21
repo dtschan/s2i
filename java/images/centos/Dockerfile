@@ -27,9 +27,9 @@ USER root
 
 
 # Dowload Maven from Apache
-RUN rpm --import http://repos.azulsystems.com/RPM-GPG-KEY-azulsystems && \
-    curl -o /etc/yum.repos.d/zulu.repo http://repos.azulsystems.com/rhel/zulu.repo && \
-    yum install -y zulu10 && \       
+RUN rpm --import http://repos.azulsystems.com/RPM-GPG-KEY-azulsystems \
+    && curl -o /etc/yum.repos.d/zulu.repo http://repos.azulsystems.com/rhel/zulu.repo \
+    && yum install -y zulu10 \       
   && curl https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz | \
     tar -xzf - -C /opt \
   && ln -s /opt/apache-maven-3.5.4 /opt/maven \
